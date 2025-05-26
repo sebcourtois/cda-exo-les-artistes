@@ -3,7 +3,6 @@ import {artworks} from "./artworks.ts";
 
 function renderArtistsNavBar() {
     let artists: Set<string> = new Set(artworks.map(art => art.artist));
-    console.log(artists);
 
     return Array.from(artists).map(lastName =>
         `<p class="artist-navbar-item">${lastName}</p>`).join("\n"

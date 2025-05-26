@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inspiration&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap');
 
 :root {
-    font-family: "Roboto Thin", serif;
+    font-family: "Roboto", sans-serif;
     /*line-height: 1.5;*/
-    /*font-weight: 400;*/
+    font-weight: 400;
+    font-size: 13px;
 
     /*color-scheme: light dark;*/
     color: rgba(255, 255, 255, 0.87);
@@ -92,7 +94,7 @@ main {
     align-items: center;
     flex-wrap: wrap;
     background-color: #440b02;
-    margin-block: 10px;
+    margin-bottom: 10px;
     padding-block: 10px;
 }
 
