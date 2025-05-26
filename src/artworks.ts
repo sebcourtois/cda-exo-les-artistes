@@ -4,7 +4,7 @@ export type Artwork = {
     imageFile: string;
 }
 
-export const artworks: Artwork[] = [
+export const ARTWORK_DB: Artwork[] = [
     {
         title: "Autoportrait",
         artist: "Caillebotte",

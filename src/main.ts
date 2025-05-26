@@ -1,25 +1,31 @@
 import "./style.css";
-import {artworks} from "./artworks.ts";
+import {ARTWORK_DB} from "./artworks.ts";
 
 function renderArtistsNavBar() {
-    let artists: Set<string> = new Set(artworks.map(art => art.artist));
-
+    const artists: Set<string> = new Set(ARTWORK_DB.map(art => art.artist));
     return Array.from(artists).map(lastName =>
-        `<p class="artist-navbar-item">${lastName}</p>`).join("\n"
-    );
+        `<p class="artist-navbar-item">${lastName}</p>`
+    ).join("\n");
+}
+
+function renderArtistGallery(someArtist: string) {
+    const artworks = ARTWORK_DB.filter(art => art.artist === someArtist)
+    return artworks.map(art =>
+        `<img src=${art.imageFile} alt=${art.title}>`
+    ).join("\n")
 }
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-<header class="header-layout">
+<header id="header_layout">
     <img src="/resources/img/logo-art-peinture.png" alt="logo-art-peinture.png">
-    <h1 class="les-artistes-peintres">Les Artistes Peintres</h1>
+    <h1 class="les_artistes_peintres">Les Artistes Peintres</h1>
 </header>
-<nav class="artist-navbar">
+<nav id="artist_navbar">
     ${renderArtistsNavBar()}
 </nav>
 <main>
-    <div class="banner-layout">
-        <div class="banner-img">
+    <div id="banner_layout">
+        <div id="banner_img">
             <img src="resources/img/img_baniere.png" alt="img_baniere.png">
         </div>
         <div>
@@ -27,17 +33,32 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
             <p>Nous avons pour mission de mettre en lumière et de promouvoir les œuvres de peintres, en créant un lien entre les artistes et un public passionné.</p>
         </div>
     </div>
-        <div class="content-body-layout">
-            <aside class="aside-navbar">
-                <p class="aside-navbar-item">Nos Productions</p>
-                <p class="aside-navbar-item">Qui Sommes-Nous ?</p>
-                <p class="aside-navbar-item">Notre Philosophie</p>
-                <p class="aside-navbar-item">Nous Contacter</p>
-            </aside>
-        <div class="artwork-layout"></div>
+    <div id="content_body_layout">
+        <aside id="aside_navbar">
+            <p class="aside-navbar-item">Nos Productions</p>
+            <p class="aside-navbar-item">Qui Sommes-Nous ?</p>
+            <p class="aside-navbar-item">Notre Philosophie</p>
+            <p class="aside-navbar-item">Nous Contacter</p>
+        </aside>
+        <div id="gallery_layout">
+        </div>
     </div>
 </main>
-<footer class="footer-layout">
+<footer id="footer_layout">
     <p>© Copyright Art Fabric</p>
 </footer>
 `;
+
+function handleNavbarItemClicked(event: MouseEvent) {
+    const navItem = event.target as HTMLElement
+    const artist = navItem.textContent
+    if (!artist) return
+
+    console.log(artist)
+    document.querySelector("#gallery_layout")!.innerHTML = renderArtistGallery(artist)
+}
+
+const navbarItems = document.querySelectorAll<HTMLElement>(".artist-navbar-item")
+for (let navItem of navbarItems) {
+    navItem.addEventListener("click", handleNavbarItemClicked)
+}

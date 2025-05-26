@@ -19,6 +19,7 @@
 
 * {
     box-sizing: border-box;
+    cursor: default;
 }
 
 img {
@@ -44,7 +45,7 @@ main {
     background-color: #ddd9c6;
 }
 
-.les-artistes-peintres {
+#les_artistes_peintres {
     font-family: "Inspiration", cursive;
     font-weight: 400;
     font-style: normal;
@@ -52,14 +53,14 @@ main {
     padding-inline: 10px;
 }
 
-.header-layout {
+#header_layout {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 }
 
-.banner-layout {
+#banner_layout {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -67,7 +68,7 @@ main {
     background-color: #78a899;
 }
 
-.banner-img {
+#banner_img {
     width: 200px;
     height: auto;
     margin: 10px;
@@ -75,19 +76,19 @@ main {
     flex-grow: 0;
 }
 
-.content-body-layout {
+#content_body_layout {
     display: flex;
     flex-direction: row;
 }
 
-.footer-layout {
+#footer_layout {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.artist-navbar {
+#artist_navbar {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -105,10 +106,12 @@ main {
     margin:0;
 }
 
-.aside-navbar {
+#aside_navbar {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    flex-shrink: 0;
+    flex-grow: 1;
     background-color: #78a899;
     padding-inline: 40px;
     padding-block: 20px;
@@ -122,6 +125,11 @@ main {
     margin: 0;
 }
 
-.artwork-layout {
+#gallery_layout {
     background-color: #ddd9c6;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
