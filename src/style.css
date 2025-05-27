@@ -45,10 +45,6 @@ main {
     background-color: #ddd9c6;
 }
 
-#logo {
-
-}
-
 #les_artistes_peintres {
     font-family: "Inspiration", cursive;
     font-weight: 400;
@@ -165,18 +161,12 @@ main {
 
 }
 
-.gallery-item-img {
-    /*width: 100%;*/
-    /*height: auto;*/
-}
-
 .gallery-item-title {
     background-color: black;
     width: 100%;
     text-align: center;
     margin: 0;
     padding: 5px;
-
 }
 
 @media only screen and (max-width: 450px) {
