@@ -13,19 +13,21 @@ function renderArtistGallery(someArtist: string) {
     return `
 <h1 id="gallery_banner">Galerie ${someArtist}</h1>
 <div id="gallery_body">
-${artworks.map(art => `
+    ${artworks.map(art => `
     <article class="gallery-item">
         <img class="gallery-item-img" src=${art.imageFile} alt=${art.title}>
         <p class="gallery-item-title">${art.title}</p>
     </article>
-`.trim()).join("\n")}
+    `.trim()).join("\n")}
 </div>
-    `.trim()
+`.trim()
 }
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 <header id="header_layout">
-    <img src="/resources/img/logo-art-peinture.png" alt="logo-art-peinture.png">
+    <div id="logo">
+        <img src="/resources/img/logo-art-peinture.png" alt="logo-art-peinture.png">
+    </div>
     <h1 id="les_artistes_peintres">Les Artistes Peintres</h1>
 </header>
 <nav id="artist_navbar">
@@ -36,7 +38,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
         <div id="banner_img">
             <img src="resources/img/img_baniere.png" alt="img_baniere.png">
         </div>
-        <div>
+        <div id="banner_body">
             <h1>Ce que nous faisons</h1>
             <p>Nous avons pour mission de mettre en lumière et de promouvoir les œuvres de peintres, en créant un lien entre les artistes et un public passionné.</p>
         </div>

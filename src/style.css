@@ -45,12 +45,16 @@ main {
     background-color: #ddd9c6;
 }
 
+#logo {
+
+}
+
 #les_artistes_peintres {
     font-family: "Inspiration", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 56px;
-    padding-inline: 10px;
+    font-size: 52px;
+    padding-inline: 20px;
 }
 
 #header_layout {
@@ -74,6 +78,10 @@ main {
     margin: 10px;
     flex-shrink: 0;
     flex-grow: 0;
+}
+
+#banner_body {
+    margin-inline: 20px;
 }
 
 #content_body_layout {
@@ -116,7 +124,6 @@ main {
     background-color: #78a899;
     padding-inline: 40px;
     padding-block: 20px;
-    width: 220px;
 }
 
 .aside-navbar-item {
@@ -152,9 +159,10 @@ main {
     justify-content: center;
     align-items: center;
     width: 150px;
-    border: black solid 1px;
     margin-right: 20px;
     margin-bottom: 20px;
+    border: black solid 1px;
+
 }
 
 .gallery-item-img {
@@ -169,4 +177,36 @@ main {
     margin: 0;
     padding: 5px;
 
+}
+
+@media only screen and (max-width: 450px) {
+    #banner_img {
+        display: none;
+    }
+
+    #artist_navbar {
+        flex-direction: column;
+        align-items: normal;
+        justify-content: normal;
+    }
+
+    #content_body_layout {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: normal;
+    }
+
+    #gallery_layout {
+        margin-inline: 20px
+    }
+
+    .gallery-item {
+        width: 100px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    #les_artistes_peintres {
+        font-size: 42px;
+    }
 }
