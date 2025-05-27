@@ -10,9 +10,17 @@ function renderArtistsNavBar() {
 
 function renderArtistGallery(someArtist: string) {
     const artworks = ARTWORK_DB.filter(art => art.artist === someArtist)
-    return artworks.map(art =>
-        `<img src=${art.imageFile} alt=${art.title}>`
-    ).join("\n")
+    return `
+<h1 id="gallery_banner">Galerie ${someArtist}</h1>
+<div id="gallery_body">
+${artworks.map(art => `
+    <article class="gallery-item">
+        <img class="gallery-item-img" src=${art.imageFile} alt=${art.title}>
+        <p class="gallery-item-title">${art.title}</p>
+    </article>
+`.trim()).join("\n")}
+</div>
+    `.trim()
 }
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
@@ -40,8 +48,8 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
             <p class="aside-navbar-item">Notre Philosophie</p>
             <p class="aside-navbar-item">Nous Contacter</p>
         </aside>
-        <div id="gallery_layout">
-        </div>
+        <section id="gallery_layout">
+        </section>
     </div>
 </main>
 <footer id="footer_layout">
@@ -53,8 +61,6 @@ function handleNavbarItemClicked(event: MouseEvent) {
     const navItem = event.target as HTMLElement
     const artist = navItem.textContent
     if (!artist) return
-
-    console.log(artist)
     document.querySelector("#gallery_layout")!.innerHTML = renderArtistGallery(artist)
 }
 
