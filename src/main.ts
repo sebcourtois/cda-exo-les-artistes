@@ -26,7 +26,7 @@ ${artworks.map(art => `
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 <header id="header_layout">
     <img src="/resources/img/logo-art-peinture.png" alt="logo-art-peinture.png">
-    <h1 class="les_artistes_peintres">Les Artistes Peintres</h1>
+    <h1 id="les_artistes_peintres">Les Artistes Peintres</h1>
 </header>
 <nav id="artist_navbar">
     ${renderArtistsNavBar()}
