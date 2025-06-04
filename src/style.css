@@ -111,6 +111,14 @@ main {
     margin: 0;
 }
 
+.artist-navbar-item:hover {
+    color: darkorange;
+}
+
+.artist-navbar-item[data-selected] {
+    background-color: #4d3c36;
+}
+
 #aside_navbar {
     display: flex;
     flex-direction: column;

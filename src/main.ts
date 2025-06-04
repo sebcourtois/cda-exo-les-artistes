@@ -63,6 +63,15 @@ function handleNavbarItemClicked(event: MouseEvent) {
     const navItem = event.target as HTMLElement
     const artist = navItem.textContent
     if (!artist) return
+
+    const prevSel = document.querySelector<HTMLElement>(
+        ".artist-navbar-item[data-selected]"
+    )
+    if (prevSel !== null) {
+        prevSel.removeAttribute("data-selected")
+    }
+    navItem.setAttribute("data-selected", "")
+
     document.querySelector("#gallery_layout")!.innerHTML = renderArtistGallery(artist)
 }
 
